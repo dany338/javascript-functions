@@ -119,3 +119,10 @@ const c = clean([1, 2, undefined, 3, null, 0, 5])
 console.log(c)
 
 // ==========
+// A pangram is a sentence that contains every letter of the alphabet. The goal of this function is to determine if the sentence given is a pangram or not
+export const isPangram = str => {
+  const regex = /([a-z])(?!.*\1)/gi;
+  return (str.match(regex) || []).length === 26;
+};
+
+// ==========
