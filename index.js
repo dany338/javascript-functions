@@ -126,3 +126,109 @@ export const isPangram = str => {
 };
 
 // ==========
+
+function computeMultiplesSum(n) {
+  // Write your code here
+  // To debug: console.error('Debug messages...');
+  let result = 0;
+  for(let i= 0; i < n; i++) {
+      if (i % 3 === 0 || i % 5 === 0 || i % 7 === 0) {
+          result += i;
+      }
+  }
+  return result;
+}
+
+
+// JavaScript code​​​​​​‌​​‌​‌‌​​‌‌‌‌​​​‌​​​​​‌​‌ below
+// Use printErr(...) to debug your solution.
+
+function closestToZero(numbers) {
+  // Your code goes here
+  if (numbers.length === 0) return 0;
+
+  let closest = numbers[0];
+
+  for (let number of numbers) {
+      let absNumber  = Math.abs(number);
+      let absClosest = Math.abs(closest);
+      if (absNumber <  absClosest) {
+          closest = number;
+      } else if (absNumber === absClosest && closest < 0) {
+          closest = number;
+      }
+  }
+  return closest;
+}
+
+
+// JavaScript code​​​​​​‌​​‌​‌‌​​‌‌‌‌​​​‌​​​​​‌​‌ below
+// Use printErr(...) to debug your solution.
+
+function nextWeek(date) {
+  // Your code goes here...
+  let today = new Date();
+
+  return new Date(today.setDate(date.getDate() + 7));
+}
+
+
+// JavaScript code​​​​​​‌​​‌​‌‌​​‌‌‌‌​​​‌​​​​​‌​‌ below
+// Use printErr(...) to debug your solution.
+
+function helloProperties(obj) {
+  // Your code goes here
+  const objKeys = Object.keys(obj);
+  const answer = objKeys.map(value => {
+    return `Hello-${value}`
+  });
+  return answer;
+}
+
+
+// JavaScript code​​​​​​‌​​‌​‌‌​​‌‌‌‌​​​‌​​​​​‌​‌ below
+// Use printErr(...) to debug your solution.
+
+function isOnEvenPosition(table, value) {
+  // You code goes here...
+  for (let i = 0; i < table.length; i++) {
+    if (i % 2 === 0 && table[i] === value) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// JavaScript code​​​​​​‌​​‌​‌‌​​‌‌‌‌​​​‌​​​​​‌​‌ below
+// Use printErr(...) to debug your solution.
+// var a = [{key:6},{key:9},{key:2},{key:1},{key:12},{key:63}, {key:20},{key:25},{key:13},{key:19},{key:32},{key:70}, {key:14},{key:7},{key:8}]
+//Expected: 70,63,32,25,20,19,14,13,12,9,8,7,6,2,1
+function customSort(table, criteria) {
+  // Your code goes here
+  return table.sort((a, b) => b[criteria] - a[criteria]);
+}
+
+
+// var art = printChar('A');
+// printErr(art);
+// print(scanChar(art));
+function scanChar(str) {
+  // Your code goes here
+  const first = "A";
+  const last = "Z";
+  for (let i = first.charCodeAt(0); i <= last.charCodeAt(0); i++) {
+    const c = String.fromCharCode(i);
+    if (printChar(c) === str) {
+      return c;
+    }
+  }
+
+  return '?'
+}
+
+// print(reshape(3, "abc de fghij")); //  "abc\ndef\nghi\nj"
+// print(reshape(2, "1 23 456")); // "12\n34\n56"
+function reshape(n, str) {
+  let regex = new RegExp(`.{${n}}`, "g");
+  return str.replace(/\s/g, '').replace(regex, "$&\\n");
+}
