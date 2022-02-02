@@ -10,6 +10,18 @@
 // isPal("No lemon, no melon") -> false
 // isPal("A Santa Lived As a Devil At NASA") -> true
 
+function buildPalindrome(st) {
+  let i = 0;
+  let aux;
+  while(st != st.split('').reverse().join('')){
+      aux = st.split('')
+      aux.splice(st.length-i, 0 ,st[i])
+      st = aux.join('');
+      i++;
+  }
+  return st;
+}
+
 const isPal = (str) => {
   str = str.replace(/\s/g, '').replace(",", '').replace("?", '').toLowerCase()
   const splitted = str.split('').reverse().join('')
@@ -269,3 +281,27 @@ function counting(s) {
     
     return ans + Math.min(curr, prev)
 }
+
+function isDuoDigit(number) {
+  // Write your code here
+  // To debug: console.error('Debug messages...');
+  
+  return (new Set(Math.abs(number).toString()).size <= 2 ) ? 'y' : 'n';
+}
+
+// JavaScript code​​​​​​‌​​‌​‌‌‌​​​​‌​​​​‌​‌‌​​‌​ below
+// Use printErr(...) to debug your solution.
+
+function factorial(n) {
+  if (n < 0) return;
+  if (n < 2) return 1;
+  return n * factorial(n - 1);
+}
+
+let i; // actua como un almacenador global y va aumentando su valor contenido de 3 en 3 cada vez que se vuelve a ejecutar
+for (i = 0; i < 3; i++) {
+  const log = () => {
+    console.log(i);
+  }
+  setTimeout(log, 100);
+} // va aumentando de 3 o 6 o 9 o 13, 16, 19, 22, en 3 primero imprime 3 y luego  imprime siempre 3
